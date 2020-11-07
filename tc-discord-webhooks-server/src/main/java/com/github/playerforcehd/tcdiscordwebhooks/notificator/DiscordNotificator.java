@@ -216,8 +216,8 @@ public class DiscordNotificator implements Notificator {
         discordEmbedFields.add(new DiscordEmbedField("Branch", branchName, true));
 
         if(sRunningBuild.isFinished()){
-            Duration duration = Duration.ofMillis(sRunningBuild.getElapsedTime());
-            String durationStr = (duration.toMinutes() > 0 ? duration.toMinutes() + "" : "") + "min " + (duration.toSecondsPart() < 10 ? "0" : "") + duration.toSecondsPart() + "s";
+            Duration duration = Duration.ofSeconds(sRunningBuild.getElapsedTime());
+            String durationStr = (duration.toMinutes() > 0 ? duration.toMinutes() + "min " : "") + (duration.toSecondsPart() < 10 ? "0" : "") + duration.toSecondsPart() + "s";
             discordEmbedFields.add(new DiscordEmbedField("Duration", durationStr, true));
         }
 
